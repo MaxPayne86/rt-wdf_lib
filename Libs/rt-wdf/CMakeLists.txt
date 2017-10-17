@@ -15,7 +15,14 @@ set(rt-wdf_SRCS
     rt-wdf_nlModels.cpp 
     rt-wdf_nlSolvers.cpp)
     
+set(rt-wdf_HEADERS
+    rt-wdf.h
+    rt-wdf_nlModels.h
+    rt-wdf_nlSolvers.h
+    rt-wdf_types.h)
+    
 add_library(rt-wdf SHARED ${rt-wdf_SRCS})
 set_property(TARGET rt-wdf PROPERTY VERSION "1.0.0")
 set_property(TARGET rt-wdf PROPERTY SOVERSION 0)
-install (TARGETS rt-wdf DESTINATION /usr/lib)
+install (TARGETS rt-wdf DESTINATION /usr/lib/rt-wdf)
+install (FILES ${rt-wdf_HEADERS} DESTINATION /usr/lib/rt-wdf/include)
