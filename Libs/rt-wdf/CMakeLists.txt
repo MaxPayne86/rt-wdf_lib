@@ -15,10 +15,16 @@ set(SO_PATCH 0)
 set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -D_GNU_SOURCE -std=gnu++0x -g -O3")
 set(CMAKE_BUILD_TYPE Release)
 
-set(rt-wdf_SRCS 
+set(rt-wdf_SRCS
     rt-wdf.cpp 
     rt-wdf_nlModels.cpp 
     rt-wdf_nlSolvers.cpp
+    rt-wdf.h
+    rt-wdf_nlModels.h
+    rt-wdf_nlSolvers.h
+    rt-wdf_types.h)
+    
+set(rt-wdf_HEADERS
     rt-wdf.h
     rt-wdf_nlModels.h
     rt-wdf_nlSolvers.h
@@ -42,7 +48,7 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}-config-version.cmake.
                ${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}-config-version.cmake @ONLY)
 
 install(FILES rt-wdf.pc DESTINATION "${INSTALL_PKGCONFIG_DIR}")
-install(FILES rt-wdf.h DESTINATION "${INSTALL_INC_DIR}")
+install(FILES ${rt-wdf_HEADERS} DESTINATION "${INSTALL_INC_DIR}")
 install(TARGETS rt-wdf
         ARCHIVE DESTINATION "${INSTALL_LIB_DIR}"
         LIBRARY DESTINATION "${INSTALL_LIB_DIR}")
