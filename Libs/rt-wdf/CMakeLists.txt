@@ -31,9 +31,6 @@ set(rt-wdf_HEADERS
     rt-wdf_types.h)
     
 add_library(rt-wdf SHARED ${rt-wdf_SRCS})
-## find_library(RESULT libarmadillo.so PATHS /usr/lib)
-## message(STATUS "RESULT: " ${RESULT})
-## link_directories(${RESULT})
 target_link_libraries(rt-wdf -larmadillo)
 
 set(RTWDF_FULL_VERSION "${SO_MAJOR}.${SO_MINOR}.${SO_PATCH}")
